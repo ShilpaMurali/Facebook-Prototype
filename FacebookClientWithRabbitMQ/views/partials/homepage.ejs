@@ -1,0 +1,124 @@
+<div class="col-sm-3">
+	<ul style="list-style-type:none">
+		<li>
+			<form class="navbar-form navbar-left">
+		 		<div class="input-group input-group-sm" ng-controller="IndexController" ng-init="friendList()">
+					<input list="friends" class="form-control" id="searchFriend" placeholder="Search Friends"  name="friends" type="text" id="friends" ng-model="friends"/>
+					<datalist id="friends">                     
+			        	<option ng-repeat="user in list" value="{{user}}"></option>                   
+		         	</datalist>
+					<div class="input-group-btn">
+						<a href="#/about/{{friends}}"> <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button></a>
+					</div>
+				</div>
+			</form>
+		</li> 
+		<li style="position:relative;top:20px">
+			<form class="navbar-form navbar-left">
+            	<div class="input-group input-group-sm"  ng-controller="IndexController" ng-init="groupMembers()">
+					<input list="groups" class="form-control" id="searchfriend" placeholder="Your Groups" type="text" ng-model="groups">
+						<datalist id="groups">                     
+                        	<option ng-repeat="groups in groupresult" value="{{groups}}"></option>                       
+                        </datalist>
+                        <div class="input-group-btn">
+							 <a href="#/groups/{{groups}}"> <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button></a>
+						</div>					
+				</div>
+			</form> 
+		</li>	
+		<li>	
+				 <!-- Trigger the modal with a button -->
+				 <button style="position:relative;left:12px;top:40px" id="createGroup" data-toggle="modal" data-target="#myModal">Create Groups</button>					
+				 	<!-- Modal -->
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">   
+							<!-- Modal content-->
+							<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">Create New Group</h4>
+							       </div>
+									<div class="modal-body" ng-controller="IndexController" >
+										Group Name: <input type="text" name="groupname" ng-model="groupname" ><br>
+										Members:<input type="text" list="friends" class="input-group input-group-sm" id="searchGroup" placeholder="Who do you want to add to the group?" ng-model="groupmember"><br>
+										<datalist id="friends">                     
+											<option ng-repeat="friends in list" value="{{friends}}"></option>
+				                        </datalist>													        
+										<button class="btn btn-default" type="submit" ng-controller="IndexController" ng-click="group(groupname,groupmember)">Add Members to the Group</button>
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+									</div>
+					       	</div>								      
+					    </div>
+					</div>					
+			</li>
+			<li> 
+				 <!-- Trigger the modal with a button -->
+				 <button style="position:relative;left:12px;top:80px" id="createGroup" data-toggle="modal" data-target="#myProfile">Edit Profile</button>					
+				 	<!-- Modal -->
+					<div class="modal fade" id="myProfile" role="dialog">
+						<div class="modal-dialog">   
+							<!-- Modal content-->
+							<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">Edit Profile Info</h4>
+							       </div>
+									<div class="modal-body" ng-controller="IndexController" >
+									 
+								          <p><input type="text" class="span3" name="userOverview" id="userOverview" placeholder="User Overview" ng-model="userOverview"></p>
+							              <p><input type="text" class="span3" name="workAndEductaion" id="workAndEductaion" placeholder="Work And Education" ng-model="workAndEductaion"></p>
+							              <p><input type="text" class="span3" name="lifeEvents" id="lifeEvents" placeholder="Life Events" ng-model="lifeEvents"></p>
+							              <p><input type="text" class="span3" name="contactInfo" placeholder="Contact Info" ng-model="contactInfo"></p>
+							              <p><button type="submit" class="btn btn-primary" ng-click="profile(userOverview,workAndEductaion,contactInfo,lifeEvents)">Add Profile Info</button>							   
+							        	  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>   
+						          </div>
+					       	</div>								      
+					    </div>
+					</div>	
+				</li> 
+				<li> 
+				 <!-- Trigger the modal with a button -->
+				 <button style="position:relative;left:12px;top:120px" id="createGroup" data-toggle="modal" data-target="#myInterests">Add Interests</button>					
+				 	<!-- Modal -->
+					<div class="modal fade" id="myInterests" role="dialog">
+						<div class="modal-dialog">   
+							<!-- Modal content-->
+							<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">Add Interests</h4>
+							       </div>
+									<div class="modal-body" ng-controller="IndexController" >
+									 
+								          <p><input type="text" class="span3" name="music" id="music" placeholder="Music" ng-model="music"></p>
+							              <p><input type="text" class="span3" name="shows" id="shows" placeholder="Shows" ng-model="shows"></p>
+							              <p><input type="text" class="span3" name="sports" id="sports" placeholder="Sports" ng-model="sports"></p>
+							              <p><button type="submit" class="btn btn-primary" ng-click="interest(music,shows,sports)">Add Interest Info</button>							   
+							        	  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>   
+						          </div>
+					       	</div>								      
+					    </div>
+					</div>	
+				</li> 
+		</ul>	
+	</div>
+<!-- main col left --> 
+	<div class="col-sm-5">
+    	<div class="well">
+    		<form class="form-horizontal" role="form">
+            	<h4>Update status</h4>
+                	<div class="form-group" style="padding:14px;">
+                    	<textarea class="form-control" placeholder="What's on your mind?"></textarea>
+                    </div>
+                    <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+             </form>
+         </div>                                                     
+         <div class="panel panel-default">
+         	<div class="panel-heading"><h4>Mark's Visit to Taj</h4></div>
+            	<div class="panel-body" style="text-align: justify,text-justify: inter-word">
+                	Mark Zuckerberg visited the Taj Mahal on Tuesday during a visit to India.And perhaps not surprisingly, the Facebook founder and CEO posted a picture of the monument to Facebook. I have always wanted to see this, Zuckerberg wrote on his Facebook page. It is even more stunning than I expected. It is incredible what people can build and what love can motivate us to build.</div>
+         </div>
+         <div class="panel panel-default">
+         	<div class="panel-heading"><h4>With attacks on Clinton, Democratic race enters new phase</h4></div>
+            	<div class="panel-body" style="text-align: justify,text-justify: inter-word">
+                	ROCK HILL, S.C. (AP) The Democratic primary race entered a new phase on Friday night, with Vermont Sen. Bernie Sanders and former Gov. Martin O'Malley escalating their criticism of front runner Hillary Rodham Clinton.
+						With her numbers on the rise after a summer slump, Clinton finds herself increasingly targeted by her primary opponents  a tonal shift for a race that has been notably civil for much of the early primary.</div>
+         </div>                       		                                                                     
+	</div>

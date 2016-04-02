@@ -1,0 +1,56 @@
+<div class="col-md-12">                      
+	<!-- content -->                      
+    <div class="row"> 
+        <!--cover-->
+        <div class="panel panel-default">
+                	<div class="panel-body">
+                        	<h2>{{groupName}}</h2> 
+                        	<h3>Closed Group</h3>                           	    	
+                     </div>
+        </div> 
+        <div class="col-sm-3">
+        	<ul style="list-style-type:none">
+				<li>
+					<form class="navbar-form navbar-left">
+				 		<div class="input-group input-group-sm" ng-controller="IndexController" ng-init="membersOfAGroup(groupName)">
+							<input list="groupmember" class="form-control" id="searchGroupMember" placeholder="Search Group Members" type="text" ng-model="groupmember"/>
+							<datalist id="groupmember">                     
+					        	<option ng-repeat="user in groupMember" value="{{user}}"></option>                   
+				         	</datalist>
+							<div class="input-group-btn">
+								<a href="#/about/{{groupmember}}"> <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button></a>
+							</div>
+						</div>
+					</form>
+				</li>
+				<li>
+					<form class="navbar-form navbar-left" ng-controller="IndexController" ng-model="groupmember" ng-init="membersOfAGroup(groupName)">
+							<ul style="list-style-type:none">                     
+					        	<li  style="margin-bottom:10px" ng-repeat="user in groupMember" >
+					        		<button type="submit" style="margin-right:10px" class="btn btn-info btn-xs" ng-controller="IndexController" ng-model="user" ng-click="deleteGroupMember(user,groupName)">Delete</button>{{user}}
+					        	</li>                   
+				         	</ul>
+					</form>
+				</li>
+				<li> 
+					 <!-- Trigger the modal with a button -->
+					 <button style="position:relative;left:12px;top:100px" id="createGroup" ng-controller="IndexController" ng-click="deleteGroup(groupName)">Delete Group</button>					
+				</li> 
+			</ul>
+		</div>
+        <!--cover-->                         
+        <div class="col-sm-7">              
+        		<!--well-->
+		        <div class="well"> 
+		        	<form class="form-horizontal" role="form">
+		            	<h4>What's New</h4>
+		                <div class="form-group" style="padding:14px;">
+		                	<textarea class="form-control" placeholder="Update your status"></textarea>
+		                </div>
+		                <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+		            </form>
+		        </div>
+                <!--well-->                      		                    
+        </div><!--col7-->
+     </div><!-- row -->
+</div><!--col -->

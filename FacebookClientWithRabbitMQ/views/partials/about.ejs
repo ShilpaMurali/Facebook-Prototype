@@ -1,0 +1,105 @@
+<div class="col-md-12">                      
+	<!-- content -->                      
+    <div class="row"> 
+        <!--cover-->
+        <div class="panel panel-default" ng-init="name()">
+        	<div ng-if="shilpa===1"><h2>Hi {{name}}</h2> </div>
+            	<div ng-if="shilpa===0 && name===person"><h2>Hi {{name}}</h2></div>
+                	<div class="panel-body">
+                    	<div ng-if="shilpa===0 && name!==person">
+                        	<h2>Hello {{person}}</h2>
+                         	<div class="loginbt"><button type="submit" class="btn btn-success" ng-controller="IndexController" ng-click="friendFunction(Text,person)">{{Text}}</button></div>
+                        </div>
+                     </div>
+                 </div> 
+                 <!--cover-->                         
+                 <!-- main col left --> 
+                 <div class="col-md-4">                           
+                    	<div class="boxi">						
+						<ul style="list-style-type:none" ng-controller="IndexController">
+							<li>
+								<h4>My Info</h4>
+								<ul style="list-style-type:none">                     
+					        		<li ng-repeat="interest in userOverview" >
+					        			{{interest}}
+					        		</li>                   
+				         		</ul>
+							</li> 
+							<li>
+								<h4>Work And Education</h4>
+								<ul style="list-style-type:none">                     
+					        		<li ng-repeat="user in workAndEductaion" >
+					        			{{user}}
+					        		</li>                   
+				         		</ul>
+							</li>  
+							<li>
+								<h4>Contact Info</h4>
+								<ul style="list-style-type:none">                     
+					        		<li ng-repeat="list in contactInfo" >
+					        			{{list}}
+					        		</li>                   
+				         		</ul>
+							</li>   
+							<li>
+								<h4>Life Events</h4>
+								<ul style="list-style-type:none">                     
+					        		<li ng-repeat="list in lifeEvents" >
+					        			{{list}}
+					        		</li>                   
+				         		</ul>
+							</li>   			
+						</ul>  
+					</div>                         
+					<div class="boxi">						
+						<ul style="list-style-type:none" ng-controller="IndexController">
+							<li>
+								<h4>Music</h4>
+								<ul style="list-style-type:none">                     
+					        		<li ng-repeat="interest in music" >
+					        			{{interest}}
+					        		</li>                   
+				         		</ul>
+							</li> 
+							<li>
+								<h4>Shows</h4>
+								<ul style="list-style-type:none">                     
+					        		<li ng-repeat="user in shows" >
+					        			{{user}}
+					        		</li>                   
+				         		</ul>
+							</li>  
+							<li>
+								<h4>Sports</h4>
+								<ul style="list-style-type:none">                     
+					        		<li ng-repeat="list in sports" >
+					        			{{list}}
+					        		</li>                   
+				         		</ul>
+							</li>   			
+						</ul>  
+					</div>                             
+                    <div class="panel panel-default">
+                    	<div class="panel-body">
+                        	<div class="list-group">
+                            </div>
+                        </div>
+                    </div>   
+     									
+		</div> <!--col-md-4-->                         
+        <!-- main col right -->
+        <div class="col-sm-7">              
+        		<!--well-->
+		        <div class="well"> 
+		        	<form class="form-horizontal" role="form">
+		            	<h4>What's New</h4>
+		                <div class="form-group" style="padding:14px;">
+		                	<textarea class="form-control" placeholder="Update your status"></textarea>
+		                </div>
+		                <button class="btn btn-primary pull-right" type="button">Post</button>
+		            </form>
+		        </div>
+                <!--well-->                      		              
+        </div><!--col7-->
+     </div><!-- row -->
+</div><!--col -->

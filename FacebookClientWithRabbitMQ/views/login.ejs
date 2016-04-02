@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Facebook Login</title>
+	<link rel='stylesheet' href='/stylesheets/styleloginpage.css' />
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
+</head>
+<body ng-app="myApp">
+	<div class="headerx">
+	</div> 
+	<div class="header">
+	</div>
+	<div id="img1" class="header"><img src="images.jpg" width="200" height="100"></div>    
+		<form  ng-app="myApp"
+			name="myForm" action='login' method="POST" novalidate> 
+			<div id="form1" class="header">Email
+				<input placeholder="Email" type="mail" name="email" ng-model="email" required>
+				<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+					<span ng-show="myForm.email.$error.required">Email is required.</span>
+				</span>
+			</div> 
+			<div id="form2" class="header">Password
+				<input placeholder="Password" type="password" name="password" ng-model="password" required>
+				<span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+					<span ng-show="myForm.password.$error.required">Password is required.</span>
+				</span>
+			</div>
+			<input type="submit" class="submit1" value="login" ng-click="signIn()"  ng-disabled="myForm.email.$dirty && myForm.email.$invalid ||  
+			myForm.password.$dirty && myForm.password.$invalid">
+		</form>
+		<div class="bodyx">
+			<div id="intro1" class="bodyx"> Connect with friends and the <br>
+			world around you on Facebook.</div>
+			<div id="img2" class="bodyx"><img src="imagesWorld.jpg" width="500" height="400"></div>  
+			<div id="signup" class="bodyx">Sign Up</div>
+			<div id="free" class="bodyx">It's free and will always be.</div>
+			<div id="signupheader" class="bodyx">
+				<form name="myForm1" action='signup' method="POST" novalidate>
+				<input placeholder="First Name" ng-model="firstname" name="firstname" id="namebox" required/>
+				<input placeholder="Last Name" ng-model="lastname" name="lastname" id="namebox" required/><br><br>
+				<span style="color:red" ng-show="myForm1.firstname.$dirty && myForm1.firstname.$invalid">
+					<span id="firstnamemsg" ng-show="myForm1.firstname.$error.required">First Name is required.
+					</span>
+				</span><br>
+				<span style="color:red" ng-show="myForm1.lastname.$dirty && myForm1.lastname.$invalid">
+					<span id="lastnamemsg" ng-show="myForm1.lastname.$error.required">Last Name is required.
+					</span>
+				</span>
+				<input placeholder="Email" type="email" name="signupemail" ng-model="signupemail" id="mailbox" required/><br><br>
+				<span style="color:red" ng-show="myForm1.email.$dirty && myForm1.email.$invalid">
+					<span style="font-size:13px" ng-show="myForm1.signupemail.$error.required">Email is required.</span>
+					<span style="font-size:13px" ng-show="myForm1.signupemail.$error.signupemail">Invalid email address.</span>
+				</span>
+				<input placeholder="Re-enter email" type="reemail" name="reemail" ng-model="reemail" id="mailbox" required/><br><br>
+				<span style="color:red" ng-show="myForm1.reemail.$dirty && myForm1.reemail.$invalid">
+					<span style="font-size:13px" ng-show="myForm1.reemail.$error.required">Email is required.</span>
+					<span style="font-size:13px" ng-show="myForm1.reemail.$error.email">Invalid email address.</span>
+				</span><br>
+				<input placeholder="New password" type="password" ng-model="signuppassword" id="namebox" name="signuppassword"/><br><br>
+				<h6>By clicking create an account, you agree to our terms.</h6><br>
+				<button type="submit" ng-click="signup()" class="btn btn-success" ng-disabled="myForm.firstname.$dirty && myForm.user.$invalid ||  
+				myForm1.signupemail.$dirty && myForm1.signupemail.$invalid ||  myForm1.lastname.$dirty && myForm1.lastname.$invalid">Sign Up!</button>
+		</form>
+		</div>
+	</div>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('LoginController', function($scope) {
+		    $scope.user = 'Shilpa Murali';
+		    $scope.email = 'murali.shilpa@gmail.com';
+		});
+	</script>
+</div>
+</body>                          
+</html>     
